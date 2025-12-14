@@ -1,9 +1,4 @@
-// /test/domain_model_test.dart
-
-// 1. Import the testing framework
 import 'package:test/test.dart';
-
-// 2. Import core domain classes using the package name 'dart_project'
 import 'package:dart_project/domain/patient.dart';
 import 'package:dart_project/domain/doctor.dart';
 import 'package:dart_project/domain/appointment.dart';
@@ -20,17 +15,17 @@ void main() {
       system = HospitalManagementSystem();
       patient1 = Patient(
         id: 'P001',
-        name: 'Alice Smith',
-        phoneNumber: '555-1234',
-        dateOfBirth: DateTime(1990, 1, 1),
-        address: '123 Main St',
+        name: 'Mona',
+        phoneNumber: '087878626',
+        dateOfBirth: DateTime(1990, 01, 03),
+        address: '546489',
       );
       doctor1 = Doctor(
         id: 'D001',
-        name: 'Dr. John Doe',
-        phoneNumber: '555-5678',
+        name: 'Dr.KO',
+        phoneNumber: '097265846',
         specialization: 'Cardiology',
-        licenseNumber: 'L12345',
+        licenseNumber: 'L198',
       );
       system.addPatient(patient1);
       system.addDoctor(doctor1);
@@ -44,7 +39,7 @@ void main() {
         dateTime: appointmentTime,
         reason: 'Routine Checkup',
       );
-      // AppointmentStatus is accessed via the imported appointment.dart
+      
       expect(appointment.status, AppointmentStatus.scheduled);
       expect(system.appointments.length, 1);
     });
@@ -109,7 +104,7 @@ void main() {
       );
       appointment.cancel();
 
-      // This test ensures the system enforces the status rule
+     
       expect(
           () => system.createMeeting(
                 appointment: appointment,
