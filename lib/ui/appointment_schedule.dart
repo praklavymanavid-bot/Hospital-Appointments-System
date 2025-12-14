@@ -1,5 +1,3 @@
-// /lib/ui/appointment_scheduler_screen.dart
-
 import '../domain/hospital_system.dart';
 import '../domain/patient.dart';
 import '../domain/doctor.dart';
