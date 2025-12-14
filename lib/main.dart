@@ -1,34 +1,29 @@
-// /lib/main.dart
-
 import 'domain/hospital_system.dart';
 import 'domain/patient.dart';
 import 'domain/doctor.dart';
-import 'ui/appointment_schedule.dart'; // Imports the UI stub
+import 'ui/appointment_schedule.dart'; 
 
 void main() {
   print('--- Hospital Management System Initializing ---');
 
-  // 1. Initialize the Core Domain System
   final system = HospitalManagementSystem();
-
-  // 2. Add Initial Entities
-  final alice = Patient(
+  final mona = Patient(
     id: 'P001',
-    name: 'Alice Smith',
-    phoneNumber: '555-1234',
-    dateOfBirth: DateTime(1990, 1, 1),
-    address: '123 Main St',
+    name: 'Mona',
+    phoneNumber: '087878626',
+    dateOfBirth: DateTime(1990, 01, 03),
+    address: '546489',
   );
-  final drDoe = Doctor(
+  final drKo = Doctor(
     id: 'D001',
-    name: 'Dr. John Doe',
-    phoneNumber: '555-5678',
+    name: 'Dr.KO',
+    phoneNumber: '097265846',
     specialization: 'Cardiology',
-    licenseNumber: 'L12345',
+    licenseNumber: 'L198',
   );
 
-  system.addPatient(alice);
-  system.addDoctor(drDoe);
+  system.addPatient(mona);
+  system.addDoctor(drKo);
 
   print(
     'System ready with ${system.patients.length} patient(s) and ${system.doctors.length} doctor(s).',
@@ -40,14 +35,14 @@ void main() {
   // --- Demonstration of a business use case ---
   final tomorrow = DateTime.now().add(const Duration(days: 1));
   scheduler.scheduleNewAppointment(
-    alice,
-    drDoe,
+    mona,
+    drKo,
     tomorrow.copyWith(hour: 10, minute: 0),
     'Annual Physical Exam',
   );
 
   // Check patient's schedule
-  scheduler.viewPatientAppointments(alice);
+  scheduler.viewPatientAppointments(mona);
 
   print('--- Initialization Complete ---');
 }
