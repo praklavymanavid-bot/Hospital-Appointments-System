@@ -1,9 +1,6 @@
-// /lib/domain/hospital_system.dart
-
 import 'patient.dart';
 import 'doctor.dart';
 import 'appointment.dart';
-// AppointmentStatus is available via the 'appointment.dart' import
 
 class HospitalManagementSystem {
   final List<Patient> _patients = [];
