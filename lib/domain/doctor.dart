@@ -1,5 +1,3 @@
-// /lib/domain/doctor.dart
-
 class Doctor {
   final String id;
   String name;
